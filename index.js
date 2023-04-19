@@ -1,11 +1,11 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
 import chalkAnimation from "chalk-animation";
-import fs from "fs";
 import Employee from "./lib/Employee.js";
 import Engineer from "./lib/Engineer.js";
 import Intern from "./lib/Intern.js";
 import Manager from "./lib/Manager.js";
+import { generateHTML } from "./src/build.js";
 let cardParentEl;
 // cardParentEl = document.getElementById("employees");
 
@@ -43,31 +43,6 @@ function welcome() {
 }
 
 welcome();
-
-function generateHTML(answers) {
-  fs.appendFile(
-    "./dist/index.html",
-    `<!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <meta charset="UTF-8" />
-            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link rel="stylesheet" href="./reset.css" />
-            <link rel="stylesheet" href="./styles.css" />
-            <title>Team Profile Generator</title>
-          </head>
-          <body>
-            <header>${answers.companyName}</header>
-        
-            <section id="employees"></section>
-            <script src='../index.js'>
-          </body>
-        </html>
-        `,
-    (err) => (err ? console.error(err) : null)
-  );
-}
 
 function addEmployee() {
   inquirer
