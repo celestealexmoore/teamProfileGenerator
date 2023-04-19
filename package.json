@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
@@ -19,6 +20,8 @@
   "homepage": "https://github.com/celestealexmoore/teamProfileGenerator#readme",
   "dependencies": {
     "bootstrap-icons": "^1.10.3",
+    "chalk": "^5.2.0",
+    "chalk-animation": "^2.0.3",
     "inquirer": "^9.1.5"
   },
   "devDependencies": {
