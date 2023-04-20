@@ -19,9 +19,9 @@ describe("Employee", () => {
 
   describe("Employee ID", () => {
     it("Must return id.", () => {
-      const id = 1234;
+      const id = "1234";
       const newEmployee = new Employee("Celeste", "1234", "celeste@gmail.com");
-      expect(newEmployee.getId).toEqual(id);
+      expect(newEmployee.getId()).toEqual(id);
     });
   });
 });

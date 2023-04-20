@@ -22,9 +22,7 @@
     "bootstrap-icons": "^1.10.3",
     "chalk": "^5.2.0",
     "chalk-animation": "^2.0.3",
-    "inquirer": "^9.1.5"
-  },
-  "devDependencies": {
-    "jest": "^29.5.0"
+    "inquirer": "^9.1.5",
+    "jest": "^24.9.0"
   }
 }
