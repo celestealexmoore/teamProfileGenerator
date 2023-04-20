@@ -35,7 +35,7 @@
   
   ## Media
    
-  ![Photo 1](./images/teamProfileVideo.mp4)  
+  ![Photo 1](./images/teamProfileVideo.gif)  
    
   
   ## Features
