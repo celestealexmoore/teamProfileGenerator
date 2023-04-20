@@ -5,7 +5,12 @@ import Employee from "./lib/Employee.js";
 import Engineer from "./lib/Engineer.js";
 import Intern from "./lib/Intern.js";
 import Manager from "./lib/Manager.js";
-import { generateTitle, generateManager, generateHTML } from "./src/build.js";
+import {
+  generateTitle,
+  generateManager,
+  generateEngineer,
+  generateHTML,
+} from "./src/build.js";
 
 chalkAnimation.rainbow("Welcome to the Employee Tracker!");
 
@@ -34,8 +39,6 @@ function start() {
     });
 }
 
-start();
-
 function addEmployee() {
   inquirer
     .prompt([
@@ -60,7 +63,7 @@ function addEmployee() {
         addIntern();
       } else {
         generateHTML();
-        console.log('Generating your HTML File!')
+        console.log("Generating your HTML File!");
       }
     });
 }
@@ -90,14 +93,8 @@ function addManager() {
       },
     ])
     .then((answers) => {
-        addEmployee();
-        generateManager(answers);
-
-      const manager = new Employee(
-        answers.name,
-        answers.employeeId,
-        answers.managerEmail
-      );
+      addEmployee();
+      generateManager(answers);
     });
 }
 
@@ -126,20 +123,9 @@ function addEngineer() {
       },
     ])
     .then((answers) => {
-      if (answers) {
-        addEmployee();
-      }
-      const engineer = new Employee(
-        answers.name,
-        answers.engineerId,
-        answers.engineerEmail,
-        answers.github
-      );
-      // engineer.push(engineerArray);
-      console.log(engineerArray);
+      addEmployee();
+      generateEngineer(answers);
     });
-
-  addEmployee();
 }
 
 function addIntern() {
@@ -170,20 +156,9 @@ function addIntern() {
       if (answers) {
         addEmployee();
       }
-      const intern = new Employee(
-        answers.name,
-        answers.internId,
-        answers.internEmail,
-        answers.internSchool
-      );
-      // intern.push(internArray);
-      console.log(internArray);
     });
 
   addEmployee();
 }
 
-/* 
-Once done with each function, add the card to the HTML.
-push multiple employees into arrays according to roles, then loop over the array to generate an HTML card per employee.
-*/
+start();
