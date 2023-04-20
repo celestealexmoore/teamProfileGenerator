@@ -28,9 +28,9 @@ function start() {
         message: `What is your company's name?`,
       },
     ])
-    .then((data) => {
-      generateTitle(data);
-      if (data) {
+    .then((answers) => {
+      generateTitle(answers);
+      if (answers) {
         addEmployee();
       }
     });
@@ -90,8 +90,8 @@ function addManager() {
       },
     ])
     .then((answers) => {
-      addEmployee();
       generateManager(answers);
+      addEmployee();
     });
 }
 
@@ -120,8 +120,8 @@ function addEngineer() {
       },
     ])
     .then((answers) => {
-      addEmployee();
       generateEngineer(answers);
+      addEmployee();
     });
 }
 
@@ -150,8 +150,8 @@ function addIntern() {
       },
     ])
     .then((answers) => {
-      addEmployee();
       generateIntern(answers);
+      addEmployee();
     });
 }
 
