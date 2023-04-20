@@ -1,10 +1,6 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
 import chalkAnimation from "chalk-animation";
-// import Employee from "./lib/Employee.js";
-// import Engineer from "./lib/Engineer.js";
-// import Intern from "./lib/Intern.js";
-// import Manager from "./lib/Manager.js";
 import {
   generateTitle,
   generateManager,
