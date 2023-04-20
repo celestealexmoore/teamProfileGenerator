@@ -5,9 +5,7 @@ import Employee from "./lib/Employee.js";
 import Engineer from "./lib/Engineer.js";
 import Intern from "./lib/Intern.js";
 import Manager from "./lib/Manager.js";
-import { generateHTML } from "./src/build.js";
-let cardParentEl;
-// cardParentEl = document.getElementById("employees");
+import { generateTitle, generateManager, generateHTML } from "./src/build.js";
 
 chalkAnimation.rainbow("Welcome to the Employee Tracker!");
 
@@ -19,11 +17,7 @@ setTimeout(() => {
   );
 }, 2000);
 
-let managerArray = [];
-let engineerArray = [];
-let internArray = [];
-
-function welcome() {
+function start() {
   return inquirer
     .prompt([
       {
@@ -32,17 +26,15 @@ function welcome() {
         message: `What is your company's name?`,
       },
     ])
-    .then((answers) => {
-      // if there's an answer, run generate HTML with the answer inside.
-      generateHTML(answers);
-      // also if answers, run the function addEmployee.
-      if (answers) {
+    .then((data) => {
+      generateTitle(data);
+      if (data) {
         addEmployee();
       }
     });
 }
 
-welcome();
+start();
 
 function addEmployee() {
   inquirer
@@ -67,7 +59,8 @@ function addEmployee() {
       } else if (answers.addEmployee === "Yes, an Intern.") {
         addIntern();
       } else {
-        return;
+        generateHTML();
+        console.log('Generating your HTML File!')
       }
     });
 }
@@ -97,16 +90,14 @@ function addManager() {
       },
     ])
     .then((answers) => {
-      if (answers) {
         addEmployee();
-      }
+        generateManager(answers);
+
       const manager = new Employee(
         answers.name,
         answers.employeeId,
         answers.managerEmail
       );
-      // manager.push(managerArray);
-      console.log(managerArray);
     });
 }
 
